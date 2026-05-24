@@ -3,8 +3,8 @@ package com.utama.findfutsal
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.utama.findfutsall.databinding.ActivityMainBinding
-import com.utama.findfutsall.ui.main.*
+import com.utama.findfutsal.databinding.ActivityMainBinding
+import com.utama.findfutsal.ui.main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> loadFragment(HomeFragment())
-                R.id.nav_explore -> loadFragment(ExploreFragment())
+                R.id.nav_explore -> loadFragment(ExsploreFragment())
                 R.id.nav_booking -> loadFragment(BookingFragment())
-                R.id.nav_favorite -> loadFragment(FavoriteFragment())
+                R.id.nav_favorite -> loadFragment(FavoritFragment())
                 R.id.nav_profile -> loadFragment(ProfileFragment())
             }
             true
