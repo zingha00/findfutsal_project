@@ -1,4 +1,4 @@
-package com.utama.findfutsall.adapter
+package com.utama.findfutsal.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
