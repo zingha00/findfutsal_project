@@ -1,4 +1,4 @@
-package com.utama.findfutsal.
+package com.utama.findfutsal
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -24,15 +24,16 @@ class MainActivity : AppCompatActivity() {
 
         sharedPreferences = getSharedPreferences("TugasApp", MODE_PRIVATE)
 
-        // Jika sudah login, langsung ke HomeActivity
+        // Cek status login
         if (sharedPreferences.getBoolean("isLoggedIn", false)) {
-            startActivity(Intent(this, HomeActivity::class.java))
-            finish()
-            return
+            // Uncomment jika HomeActivity sudah ada
+            // startActivity(Intent(this, HomeActivity::class.java))
+            // finish()
         }
 
         setContentView(R.layout.activity_main)
 
+        // Inisialisasi View
         etIdentifier = findViewById(R.id.etIdentifier)
         etPassword = findViewById(R.id.etPassword)
         btnLogin = findViewById(R.id.btnLogin)
@@ -44,11 +45,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         tvDaftar.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
+            // Intent ke RegisterActivity
+            // startActivity(Intent(this, RegisterActivity::class.java))
+            Toast.makeText(this, "Menuju halaman Daftar", Toast.LENGTH_SHORT).show()
         }
 
         tvLupaPassword.setOnClickListener {
-            Toast.makeText(this, "Fitur lupa password belum tersedia", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Fitur lupa sandi belum tersedia", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -56,37 +59,27 @@ class MainActivity : AppCompatActivity() {
         val identifier = etIdentifier.text.toString().trim()
         val password = etPassword.text.toString().trim()
 
-        var isValid = true
-
         if (TextUtils.isEmpty(identifier)) {
             etIdentifier.error = "Email atau nomor HP harus diisi!"
-            etIdentifier.requestFocus()
-            isValid = false
+            return
         }
 
         if (TextUtils.isEmpty(password)) {
-            etPassword.error = "Password harus diisi!"
-            if (isValid) etPassword.requestFocus()
-            isValid = false
+            etPassword.error = "Kata sandi harus diisi!"
+            return
         }
 
-        if (!isValid) return
+        // Contoh verifikasi sederhana
+        val savedEmail = sharedPreferences.getString("email", "admin@gmail.com")
+        val savedPassword = sharedPreferences.getString("password", "admin123")
 
-        // Ambil data dari SharedPreferences
-        val savedEmail = sharedPreferences.getString("email", "")
-        val savedPhone = sharedPreferences.getString("phone", "")
-        val savedPassword = sharedPreferences.getString("password", "")
-        val savedName = sharedPreferences.getString("namaLengkap", "")
-
-        val isIdentifierMatch = identifier == savedEmail || identifier == savedPhone || identifier == savedName
-
-        if (isIdentifierMatch && password == savedPassword) {
+        if ((identifier == savedEmail || identifier == "admin") && password == savedPassword) {
             sharedPreferences.edit().putBoolean("isLoggedIn", true).apply()
-            Toast.makeText(this, "Login berhasil! Selamat datang, $savedName", Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this, HomeActivity::class.java))
-            finish()
+            Toast.makeText(this, "Login berhasil!", Toast.LENGTH_SHORT).show()
+            // startActivity(Intent(this, HomeActivity::class.java))
+            // finish()
         } else {
-            Toast.makeText(this, "Email/No HP/Nama atau password salah!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Email atau kata sandi salah!", Toast.LENGTH_SHORT).show()
         }
     }
 }
