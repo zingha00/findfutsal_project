@@ -1,11 +1,11 @@
-package com.utama.findfutsall.adapter
+package com.utama.findfutsal.adapter
 
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.utama.findfutsall.data.model.Promo
-import com.utama.findfutsall.databinding.ItemPromoBinding
+import com.utama.findfutsal.data.model.Promo
+import com.utama.findfutsal.databinding.ItemPromoBinding
 
 class PromoAdapter(
     private val promos: List<Promo>
