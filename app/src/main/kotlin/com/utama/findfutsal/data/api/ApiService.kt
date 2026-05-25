@@ -1,9 +1,9 @@
 package com.utama.findfutsal.data.api
 
-import com.utama.findfutsall.data.model.LoginRequest
-import com.utama.findfutsall.data.model.LoginResponse
-import com.utama.findfutsall.data.model.RegisterRequest
-import com.utama.findfutsall.data.model.RegisterResponse
+import com.utama.findfutsal.data.model.LoginRequest
+import com.utama.findfutsal.data.model.LoginResponse
+import com.utama.findfutsal.data.model.RegisterRequest
+import com.utama.findfutsal.data.model.RegisterResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST

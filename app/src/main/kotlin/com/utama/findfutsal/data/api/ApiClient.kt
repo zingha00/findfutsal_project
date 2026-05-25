@@ -1,6 +1,6 @@
 package com.utama.findfutsal.data.api
 
-import com.utama.findfutsall.utils.Constants
+import com.utama.findfutsal.utils.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

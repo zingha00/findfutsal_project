@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.utama.findfutsall.data.model.Field
-import com.utama.findfutsall.databinding.ItemFieldBinding
+import com.utama.findfutsal.data.model.Field
+import com.utama.findfutsal.databinding.ItemFieldBinding
 
 class FieldAdapter(
     private var fields: List<Field>,
